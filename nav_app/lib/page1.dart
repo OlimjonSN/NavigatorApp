@@ -12,12 +12,15 @@ class Page1 extends StatefulWidget {
 
 class _Page1State extends State<Page1> {
   TextEditingController control = TextEditingController();
-
+  String data = "";
   Future _openPage2() async {
-    Navigator.of(context)
+    Map result = await Navigator.of(context)
         .push(MaterialPageRoute(builder: (BuildContext context) {
       return Page2(input: control.text);
     }));
+    setState(() {
+      data = result["data"];
+    });
   }
 
   @override
@@ -35,6 +38,7 @@ class _Page1State extends State<Page1> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(4))),
               ),
+              Text("recived message $data"),
               TextButton(
                   onPressed: _openPage2,
                   // () {
