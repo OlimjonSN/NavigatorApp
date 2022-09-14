@@ -13,7 +13,7 @@ class Page2 extends StatelessWidget {
           children: [
             TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Page1.id);
+                  Navigator.pushReplacementNamed(context, Page1.id);
                 },
                 child: const Text("page2")),
           ],
