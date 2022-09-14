@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nav_app/page1.dart';
 
 class Page2 extends StatelessWidget {
-  const Page2({super.key});
+  String? input;
+  Page2({super.key, this.input});
   static const id = "page2";
   @override
   Widget build(BuildContext context) {
@@ -11,11 +12,12 @@ class Page2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(input!),
             TextButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, Page1.id);
                 },
-                child: const Text("page2")),
+                child: const Text("you entered this message")),
           ],
         ),
       ),
